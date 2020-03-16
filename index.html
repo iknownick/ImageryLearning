@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+        <!-- Font Awesome CSS -->
+        <!-- https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers -->
+        <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+
+        <!-- My CSS -->
+        <link rel="stylesheet" href="./css/styles.css">
+
+        <title>Imagery Learning</title>
+    </head>
+
+    <body>
+
+        <!-- Splash Screen Modal -->
+        <div class="modal fade" role="dialog" id="splashScreenModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="col">
+                            <div class="row justify-content-center">
+                                <h1 class="font-weight-bold">IL</h1>
+                            </div>
+                            <div class="row justify-content-center">
+                                Imagery Learning
+                            </div>
+                            <div class="row justify-content-center">
+                                Learning made visual
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login modal -->
+        <div class="modal fade" role="dialog" id="loginModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel">Login to Your Imagery Learning Account</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="inputUserName">User name</label>
+                                <input type="email" class="form-control" id="inputUserName" placeholder="Enter user name">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword">Password</label>
+                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                            </div>
+                        </form>
+                        <span class="fas fa-tools"></span> Login is currently disabled, but coming in a future update! <span class="fas fa-tools"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" disabled>Login</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Japanese modal -->
+        <div class="modal fade" role="dialog" id="japaneseModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="japaneseModalLabel"><span class="fas fa-tools"></span> Under Construction <span class="fas fa-tools"></span></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Japanese language learning is currently unavailable, but look for it soon in a future update!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- French category modal -->
+        <div class="modal fade" role="dialog" id="frenchCategoryModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="frenchCategoryModalLabel"><span class="fas fa-tools"></span> Under Construction <span class="fas fa-tools"></span></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        This French language category is currently unavailable, but look for it soon in a future update!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- French colors category score modal -->
+        <div class="modal fade" role="dialog" id="frenchColorsScoreModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="frenchCategoryModalLabel">French: Colors - Score</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body mx-auto justify-content-center">
+                        <p class="language-score-modal-text mx-auto justify-content-center" id="french-colors-score"></p>
+                        <p class="language-score-modal-text mx-auto justify-content-center" id="french-colors-points"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Korean modal -->
+        <div class="modal fade" role="dialog" id="koreanModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="koreanModalLabel"><span class="fas fa-tools"></span> Under Construction <span class="fas fa-tools"></span></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Korean language learning is currently unavailable, but look for it soon in a future update!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Spanish modal -->
+        <div class="modal fade" role="dialog" id="spanishModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="spanishModalLabel"><span class="fas fa-tools"></span> Under Construction <span class="fas fa-tools"></span></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Spanish language learning is currently unavailable, but look for it soon in a future update!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Badges modal -->
+        <div class="modal fade" role="dialog" id="badgesModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="badgesModalLabel"><span class="fas fa-tools"></span> Under Construction <span class="fas fa-tools"></span></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Badges, achivements, and tracking statistics are currently unavailable, but look for them soon in a future update!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Main container -->
+        <div class="container">
+
+            <!-- Branding, user information, and login button -->
+            <div class="row row-header">
+                <div class="col align-self-center">
+                    <h1>IL</h1>
+                </div>
+                <div class="col align-self-center">
+                    <span class="fas fa-user-circle"></span> User not logged in
+                </div>
+                <div class="col align-self-center" id="loginDiv">
+                    <span class="fas fa-sign-in-alt"></span> Login
+                </div>
+            </div>
+
+            <!-- Navigation tabs -->
+            <div class="row">
+                <div class="col">
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-learn-tab" data-toggle="tab" href="#nav-learn" role="tab" aria-controls="nav-learn" aria-selected="true"><span class="fas fa-chalkboard-teacher"></span> Learn</a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><span class="fas fa-user-circle"></span> Profile</a>
+                            <a class="nav-item nav-link" id="nav-badges-tab" href="#" aria-selected="false"><span class="fas fa-trophy"></span> Badges</a>
+                            <a class="nav-item nav-link" id="nav-posts-tab" data-toggle="tab" href="#nav-posts" role="tab" aria-controls="nav-posts" aria-selected="false"><span class="fas fa-comments"></span> Posts</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Tabbed content -->
+            <div class="tab-content" id="nav-tabContent" style="border: 1px solid floralwhite">
+
+                <!-- Learning tab -->
+                <div class="tab-pane fade show active" id="nav-learn" role="tabpanel" aria-labelledby="nav-learn-tab">
+
+                    <!-- Buttons for choosing a language to learn -->
+                    <div class="row" id="languageCategories">
+                        <div class="col">
+                            <div class="row row-content-learn justify-content-center">
+                                <button type="button" class="btn btn-primary btn-round" id="frenchButton">French</button>
+                            </div>
+                            <div class="row row-content-learn justify-content-center">
+                                <button type="button" class="btn btn-primary btn-round" id="japaneseButton">Japanese</button>
+                            </div>
+                            <div class="row row-content-learn justify-content-center">
+                                <button type="button" class="btn btn-primary btn-round" id="koreanButton">Korean</button>
+                            </div>
+                            <div class="row row-content-learn justify-content-center">
+                                <button type="button" class="btn btn-primary btn-round" id="spanishButton">Spanish</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Buttons for choosing a French category to learn -->
+                    <div class="row" id="frenchCategories" style="display: none">
+                        <div class="col">
+                            <div class="row row-content-learn justify-content-center">
+                                <button type="button" class="btn btn-primary btn-round" id="frenchColorsButton">Colors</button>
+                            </div>
+                            <div class="row row-content-learn justify-content-center">
+                                <button type="button" class="btn btn-primary btn-round" id="frenchFamilyButton">Family</button>
+                            </div>
+                            <div class="row row-content-learn justify-content-center">
+                                <button type="button" class="btn btn-primary btn-round" id="frenchFoodsButton">Foods</button>
+                            </div>
+                            <div class="row row-content-learn justify-content-center">
+                                <button type="button" class="btn btn-primary btn-round" id="frenchHouseholdItemsButton">Household Items</button>
+                            </div>
+                            <div class="row row-content-learn justify-content-center">
+                                <button type="button" class="btn btn-primary btn-round" id="frenchBackButton">Back</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- French colors category to learn -->
+                    <div class="row" id="frenchColorsCategory" style="display: none">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header" data-toggle="collapse" data-target="#frenchColorsInstructionsBody">
+                                    <h6>Instructions</h6>
+                                </div>
+
+                                <div id="frenchColorsInstructionsBody" class="collapse show">
+                                    <div class="card-body">
+                                        <p>Type the number from the French vocabulary on the left in the blank for of the correct image on the right</p>
+                                        <p>Press the score button when you are finished to get your score.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>French: Colors</h5>
+                                </div>
+
+                                <div class="card-body">
+
+                                    <div class="row row-content-learn">
+                                        <div class="col align-self-center">
+                                            <div class="row justify-content-center">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label for="frenchColorsInput1">rouge</label>
+                                                        <select class="form-control" id="frenchColorsInput1">
+                                                            <option>A</option>
+                                                            <option>B</option>
+                                                            <option>C</option>
+                                                            <option>D</option>
+                                                            <option>E</option>
+                                                            <option>F</option>
+                                                            <option>G</option>
+                                                        </select>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            A. <img class = "img-fluid rounded mx-auto learning-card" src="img/orange.jpg">
+                                        </div>
+                                    </div>
+
+                                    <div class="row row-content-learn">
+                                        <div class="col align-self-center">
+                                            <div class="row justify-content-center">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label for="frenchColorsInput2">jaune</label>
+                                                        <select class="form-control" id="frenchColorsInput2">
+                                                            <option>A</option>
+                                                            <option>B</option>
+                                                            <option>C</option>
+                                                            <option>D</option>
+                                                            <option>E</option>
+                                                            <option>F</option>
+                                                            <option>G</option>
+                                                        </select>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            B. <img class = "img-fluid rounded mx-auto learning-card" src="img/black.jpg">
+                                        </div>
+                                    </div>
+
+                                    <div class="row row-content-learn">
+                                        <div class="col align-self-center">
+                                            <div class="row justify-content-center">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label for="frenchColorsInput3">vert(e)</label>
+                                                        <select class="form-control" id="frenchColorsInput3">
+                                                            <option>A</option>
+                                                            <option>B</option>
+                                                            <option>C</option>
+                                                            <option>D</option>
+                                                            <option>E</option>
+                                                            <option>F</option>
+                                                            <option>G</option>
+                                                        </select>
+                                                    </div>
+                                                </form>                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            C. <img class = "img-fluid rounded mx-auto learning-card" src="img/blue.jpg">
+                                        </div>
+                                    </div>
+
+                                    <div class="row row-content-learn">
+                                        <div class="col align-self-center">
+                                            <div class="row justify-content-center">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label for="frenchColorsInput4">blanch(e)</label>
+                                                        <select class="form-control" id="frenchColorsInput4">
+                                                            <option>A</option>
+                                                            <option>B</option>
+                                                            <option>C</option>
+                                                            <option>D</option>
+                                                            <option>E</option>
+                                                            <option>F</option>
+                                                            <option>G</option>
+                                                        </select>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            D. <img class = "img-fluid rounded mx-auto learning-card" src="img/yellow.jpg">
+                                        </div>
+                                    </div>
+
+                                    <div class="row row-content-learn">
+                                        <div class="col align-self-center">
+                                            <div class="row justify-content-center">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label for="frenchColorsInput5">blue(e)</label>
+                                                        <select class="form-control" id="frenchColorsInput5">
+                                                            <option>A</option>
+                                                            <option>B</option>
+                                                            <option>C</option>
+                                                            <option>D</option>
+                                                            <option>E</option>
+                                                            <option>F</option>
+                                                            <option>G</option>
+                                                        </select>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            E. <img class = "img-fluid rounded mx-auto learning-card" src="img/red.jpg">
+                                        </div>
+                                    </div>
+
+                                    <div class="row row-content-learn">
+                                        <div class="col align-self-center">
+                                            <div class="row justify-content-center">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label for="frenchColorsInput6">noir(e)</label>
+                                                        <select class="form-control" id="frenchColorsInput6">
+                                                            <option>A</option>
+                                                            <option>B</option>
+                                                            <option>C</option>
+                                                            <option>D</option>
+                                                            <option>E</option>
+                                                            <option>F</option>
+                                                            <option>G</option>
+                                                        </select>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            F. <img class = "img-fluid rounded mx-auto learning-card" src="img/white.jpg">
+                                        </div>
+                                    </div>
+
+                                    <div class="row row-content-learn">
+                                        <div class="col align-self-center">
+                                            <div class="row justify-content-center">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label for="frenchColorsInput7">orange</label>
+                                                        <select class="form-control" id="frenchColorsInput7">
+                                                            <option>A</option>
+                                                            <option>B</option>
+                                                            <option>C</option>
+                                                            <option>D</option>
+                                                            <option>E</option>
+                                                            <option>F</option>
+                                                            <option>G</option>
+                                                        </select>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            G. <img class = "img-fluid rounded mx-auto learning-card" src="img/green.jpg">
+                                        </div>
+                                    </div>
+
+                                    <div class="row row-content-learn">
+                                        <div class="col align-self-center">
+                                            <button class="btn btn-primary btn-round" id="frenchColorsScoreButton">
+                                                Score
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                            <div class="row row-content-learn justify-content-center">
+                                <button type="button" class="btn btn-primary btn-round" id="frenchColorsBackButton">Back</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Buttons for choosing a Japanese category to learn -->
+                    <div class="row" id="japaneseCategories" style="display: none">
+                        <div class="col">
+                            <div class="row row-content-learn justify-content-center">
+                                <h2>Look for Japanese content in a future update!</h2>
+                            </div>
+                            <div class="row row-content-learn justify-content-center">
+                                <button type="button" class="btn btn-primary btn-round" id="japaneseBackButton">Back</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Buttons for choosing a Korean category to learn -->
+                    <div class="row" id="koreanCategories" style="display: none">
+                        <div class="col">
+                            <div class="row row-content-learn justify-content-center">
+                                <h2>Look for Korean content in a future update!</h2>
+                            </div>
+                            <div class="row row-content-learn justify-content-center">
+                                <button type="button" class="btn btn-primary btn-round" id="koreanBackButton">Back</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Buttons for choosing a Spanish category to learn -->
+                    <div class="row" id="spanishCategories" style="display: none">
+                        <div class="col">
+                            <div class="row row-content-learn justify-content-center">
+                                <h2>Look for Spanish content in a future update!</h2>
+                            </div>
+                            <div class="row row-content-learn justify-content-center">
+                                <button type="button" class="btn btn-primary btn-round" id="spanishBackButton">Back</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Profile tab -->
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <div class="row">
+                        <div class="col">
+                            Please login to see your user profile.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Badges tab -->
+                <div class="tab-pane fade" id="nav-badges" role="tabpanel" aria-labelledby="nav-badges-tab">
+                    <div class="row">
+                        <div class="col">
+                            Look for badges content in a future update!
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Posts tab -->
+                <div class="tab-pane fade" id="nav-posts" role="tabpanel" aria-labelledby="nav-posts-tab">
+                    <div class="row">
+                        <div class="col">
+
+                            <!-- Posts accordion -->
+                            
+                            <div id="accordion">
+
+                                <div class="card">
+                                    <div class="card-header" id="helpPosts">
+                                        <h5 class="mb-0">
+                                            <button class="btn" data-toggle="collapse" data-target="#helpPostsCollapse" aria-expanded="true" aria-controls="helpPostsCollapse">
+                                                Help
+                                            </button>
+                                        </h5>
+                                    </div>
+
+                                    <div id="helpPostsCollapse" class="collapse show" aria-labelledby="helpPosts" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <p>This is version 0.1 of the Imagery Learning application.</p>
+                                            <p>Options are currently available for learning the French language color category. Look for future categories in French and additional languages in the future!</p>
+                                            <p>Options to create an account, login to an account, and track progress are also on the way!</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-header" id="questionsPosts">
+                                        <h5 class="mb-0">
+                                            <button class="btn collapsed" data-toggle="collapse" data-target="#questionsPostsCollapse" aria-expanded="false" aria-controls="questionsPostsCollapse">
+                                                Questions
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    
+                                    <div id="questionsPostsCollapse" class="collapse" aria-labelledby="questionsPosts" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <p>In a future update questions, comments, and suggestions to the site administrators here will be posted here.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-header" id="myPosts">
+                                        <h5 class="mb-0">
+                                            <button class="btn collapsed" data-toggle="collapse" data-target="#myPostsCollapse" aria-expanded="false" aria-controls="myPostsCollapse">
+                                                My Posts
+                                            </button>
+                                        </h5>
+                                    </div>
+
+                                    <div id="myPostsCollapse" class="collapse" aria-labelledby="myPosts" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <p>In a future update, user posts that are visible to the public will be posted here.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-header" id="publicPosts">
+                                        <h5 class="mb-0">
+                                            <button class="btn collapsed" data-toggle="collapse" data-target="#publicPostsCollapse" aria-expanded="false" aria-controls="publicPostsCollapse">
+                                                Public Posts
+                                            </button>
+                                        </h5>
+                                    </div>
+
+                                    <div id="publicPostsCollapse" class="collapse" aria-labelledby="publicPosts" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <p>In a future update, public posts of other users will be shown here.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- Include the Bootstrap packages -->
+        <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+        <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function() {
+
+                // Show the splash screen on start-up
+                $('#splashScreenModal').modal('show');
+
+                // Hide the splash screen when clicked
+                $('#splashScreenModal').click(function() {
+                    $('#splashScreenModal').modal('hide');
+                });
+
+                // Open the login modal when the login div is clicked
+                $('#loginDiv').click(function() {
+                    $('#loginModal').modal('show');
+                });
+
+                // Show the language category options when the button is clicked
+                $('#frenchButton').click(function() {
+                    $('#languageCategories').hide();
+                    $('#frenchCategories').show();
+                });
+
+                // Show the French colors category when the button is clicked
+                $('#frenchColorsButton').click(function() {
+                    $('#frenchCategories').hide();
+                    $('#frenchColorsCategory').show();
+                });
+
+                // Show the French category modal when the unavailable category button is clicked
+                $('#frenchFamilyButton').click(function() {
+                    $('#frenchCategoryModal').modal('show');
+                });
+                $('#frenchFoodsButton').click(function() {
+                    $('#frenchCategoryModal').modal('show');
+                });
+                $('#frenchHouseholdItemsButton').click(function() {
+                    $('#frenchCategoryModal').modal('show');
+                });
+
+                // Show the language categories when the back button is clicked
+                $('#frenchBackButton').click(function() {
+                    $('#frenchCategories').hide();
+                    $('#languageCategories').show();
+                });
+
+                // Show the French categories when the back button is clicked
+                $('#frenchColorsBackButton').click(function() {
+                    $('#frenchColorsCategory').hide();
+                    $('#frenchCategories').show();
+                });
+
+                // Grade the answers for the French colors category
+                $('#frenchColorsScoreButton').click(function() {
+                    // Set the initial score to zero
+                    var score = 0;
+
+                    // Get the answers and check against the correct answers
+                    if($('#frenchColorsInput1 option:selected').text() === 'E') {
+                        score = score + 1;
+                        console.log('Answer right.');
+                    } else {
+                        console.log('Answer wrong.');
+                    }
+                    if($('#frenchColorsInput2 option:selected').text() === 'D') {
+                        score = score + 1;
+                        console.log('Answer right.');
+                    } else {
+                        console.log('Answer wrong.');
+                    }
+
+                    if($('#frenchColorsInput3 option:selected').text() === 'G') {
+                        score = score + 1;
+                        console.log('Answer right.');
+                    } else {
+                        console.log('Answer wrong.');
+                    }
+
+                    if($('#frenchColorsInput4 option:selected').text() === 'F') {
+                        score = score + 1;
+                        console.log('Answer right.');
+                    } else {
+                        console.log('Answer wrong.');
+                    }
+
+                    if($('#frenchColorsInput5 option:selected').text() === 'C') {
+                        score = score + 1;
+                        console.log('Answer right.');
+                    } else {
+                        console.log('Answer wrong.');
+                    }
+
+                    if($('#frenchColorsInput6 option:selected').text() === 'B') {
+                        score = score + 1;
+                        console.log('Answer right.');
+                    } else {
+                        console.log('Answer wrong.');
+                    }
+
+                    if($('#frenchColorsInput7 option:selected').text() === 'A') {
+                        score = score + 1;
+                        console.log('Answer right.');
+                    } else {
+                        console.log('Answer wrong.');
+                    }
+
+                    // Show the score modal
+                    var percentage = 100.0 * ( score / 7.0 );
+                    document.getElementById('french-colors-score').innerHTML =  percentage.toFixed(2) + '%';
+                    if(score === 1) {
+                        document.getElementById('french-colors-points').innerHTML = 'You earned ' + score + ' point!';
+                    } else {
+                        document.getElementById('french-colors-points').innerHTML = 'You earned ' + score + ' points!';
+                    };
+                    $('#frenchColorsScoreModal').modal('show');
+
+                });
+
+                // Show the Japanese language modal when the Japanese button is clicked
+                $('#japaneseButton').click(function() {
+                    $('#japaneseModal').modal('show');
+                });
+
+                // Show the language category options when the button is clicked
+                /*
+                $('#japaneseButton').click(function() {
+                    $('#languageCategories').hide();
+                    $('#japaneseCategories').show();
+                });
+                */
+
+                // Show the language categories when the back button is clicked
+                $('#japaneseBackButton').click(function() {
+                    $('#japaneseCategories').hide();
+                    $('#languageCategories').show();
+                });
+
+                // Show the Korean language modal when the Korean button is clicked
+                $('#koreanButton').click(function() {
+                    $('#koreanModal').modal('show');
+                });
+
+                // Show the language category options when the button is clicked
+                /*
+                $('#koreanButton').click(function() {
+                    $('#languageCategories').hide();
+                    $('#koreanCategories').show();
+                });
+                */
+
+                // Show the language categories when the back button is clicked
+                $('#koreanBackButton').click(function() {
+                    $('#koreanCategories').hide();
+                    $('#languageCategories').show();
+                });
+
+                // Show the Spanish language modal when the Korean button is clicked
+                $('#spanishButton').click(function() {
+                    $('#spanishModal').modal('show');
+                });
+
+                // Show the language category options when the button is clicked
+                /*
+                $('#spanishButton').click(function() {
+                    $('#languageCategories').hide();
+                    $('#spanishCategories').show();
+                });
+                */
+
+                // Show the language categories when the back button is clicked
+                $('#spanishBackButton').click(function() {
+                    $('#spanishCategories').hide();
+                    $('#languageCategories').show();
+                });
+
+                // Show the badges modal when the Badges tab is clicked
+                $('#nav-badges-tab').click(function() {
+                    $('#badgesModal').modal('show');
+                });
+
+            });
+        </script>
+    </body>
+</html>

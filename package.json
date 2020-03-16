@@ -1,0 +1,28 @@
+{
+  "name": "imagerylearning",
+  "version": "1.0.0",
+  "description": "Final project for Front-End Web UI Frameworks and Tools: Bootstrap 4",
+  "main": "index.html",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.1"
+  },
+  "devDependencies": {
+    "lite-server": "^2.5.4",
+    "node-sass": "^4.13.1",
+    "onchange": "^6.1.0",
+    "parallelshell": "^3.0.2"
+  },
+  "scripts": {
+    "start": "npm run lite",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server",
+    "scss": "node-sass -o ./css/ ./css/",
+    "watch:scss": "onchange \"css/*.scss\" -- npm run scss",
+    "watch:all": "parallelshell \"npm run watch:scss\" \"npm run lite\""
+  },
+  "author": "Nicholas Liggett",
+  "license": "ISC"
+}
